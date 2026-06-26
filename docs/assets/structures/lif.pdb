@@ -1,0 +1,109 @@
+HEADER    LiF; LiBr + Br→F; repeat=(2, 2, 1)
+REMARK    Estrutura de visualizacao com conectividade inferida por distancia.
+HETATM    1  F   MOL A   1       4.942  -0.000   7.488  1.00  0.00           F
+HETATM    2  F   MOL A   1      -2.471   4.280   7.488  1.00  0.00           F
+HETATM    3  F   MOL A   1       1.235   2.140   7.488  1.00  0.00           F
+HETATM    4  F   MOL A   1      -0.000   4.280  10.674  1.00  0.00           F
+HETATM    5  F   MOL A   1       3.706   2.140  10.674  1.00  0.00           F
+HETATM    6  F   MOL A   1       0.000  -0.000  10.675  1.00  0.00           F
+HETATM    7 Li   MOL A   1       2.471  -0.000  10.385  1.00  0.00          Li
+HETATM    8 Li   MOL A   1      -1.235   2.140  10.385  1.00  0.00          Li
+HETATM    9 Li   MOL A   1       2.471   4.280  10.385  1.00  0.00          Li
+HETATM   10 Li   MOL A   1      -0.000   4.280   7.826  1.00  0.00          Li
+HETATM   11 Li   MOL A   1       3.706   2.140   7.826  1.00  0.00          Li
+HETATM   12 Li   MOL A   1      -0.000   0.000   7.827  1.00  0.00          Li
+HETATM   13  F   MOL A   1       1.235   6.419   7.488  1.00  0.00           F
+HETATM   14  F   MOL A   1      -6.177  10.699   7.488  1.00  0.00           F
+HETATM   15  F   MOL A   1      -2.471   8.559   7.488  1.00  0.00           F
+HETATM   16  F   MOL A   1      -3.706  10.699  10.674  1.00  0.00           F
+HETATM   17  F   MOL A   1       0.000   8.559  10.674  1.00  0.00           F
+HETATM   18  F   MOL A   1      -3.706   6.419  10.675  1.00  0.00           F
+HETATM   19 Li   MOL A   1      -1.236   6.419  10.385  1.00  0.00          Li
+HETATM   20 Li   MOL A   1      -4.941   8.559  10.385  1.00  0.00          Li
+HETATM   21 Li   MOL A   1      -1.235  10.699  10.385  1.00  0.00          Li
+HETATM   22 Li   MOL A   1      -3.706  10.699   7.826  1.00  0.00          Li
+HETATM   23 Li   MOL A   1       0.000   8.559   7.826  1.00  0.00          Li
+HETATM   24 Li   MOL A   1      -3.706   6.419   7.827  1.00  0.00          Li
+HETATM   25  F   MOL A   1      12.354  -0.000   7.488  1.00  0.00           F
+HETATM   26  F   MOL A   1       4.942   4.280   7.488  1.00  0.00           F
+HETATM   27  F   MOL A   1       8.648   2.140   7.488  1.00  0.00           F
+HETATM   28  F   MOL A   1       7.412   4.280  10.674  1.00  0.00           F
+HETATM   29  F   MOL A   1      11.119   2.140  10.674  1.00  0.00           F
+HETATM   30  F   MOL A   1       7.412  -0.000  10.675  1.00  0.00           F
+HETATM   31 Li   MOL A   1       9.883  -0.000  10.385  1.00  0.00          Li
+HETATM   32 Li   MOL A   1       6.177   2.140  10.385  1.00  0.00          Li
+HETATM   33 Li   MOL A   1       9.883   4.280  10.385  1.00  0.00          Li
+HETATM   34 Li   MOL A   1       7.412   4.280   7.826  1.00  0.00          Li
+HETATM   35 Li   MOL A   1      11.119   2.140   7.826  1.00  0.00          Li
+HETATM   36 Li   MOL A   1       7.412  -0.000   7.827  1.00  0.00          Li
+HETATM   37  F   MOL A   1       8.648   6.419   7.488  1.00  0.00           F
+HETATM   38  F   MOL A   1       1.235  10.699   7.488  1.00  0.00           F
+HETATM   39  F   MOL A   1       4.942   8.559   7.488  1.00  0.00           F
+HETATM   40  F   MOL A   1       3.706  10.699  10.674  1.00  0.00           F
+HETATM   41  F   MOL A   1       7.412   8.559  10.674  1.00  0.00           F
+HETATM   42  F   MOL A   1       3.706   6.419  10.675  1.00  0.00           F
+HETATM   43 Li   MOL A   1       6.177   6.419  10.385  1.00  0.00          Li
+HETATM   44 Li   MOL A   1       2.471   8.559  10.385  1.00  0.00          Li
+HETATM   45 Li   MOL A   1       6.177  10.699  10.385  1.00  0.00          Li
+HETATM   46 Li   MOL A   1       3.706  10.699   7.826  1.00  0.00          Li
+HETATM   47 Li   MOL A   1       7.412   8.559   7.826  1.00  0.00          Li
+HETATM   48 Li   MOL A   1       3.706   6.419   7.827  1.00  0.00          Li
+CONECT    1   11   36
+CONECT    2   10   24
+CONECT    3   10   11   12
+CONECT    4    8    9   19
+CONECT    5    7    9   32
+CONECT    6    7    8
+CONECT    7    5    6   11   12
+CONECT    8    4    6   10   12
+CONECT    9    4    5   10   11
+CONECT    9   42   48
+CONECT   10    2    3    8    9
+CONECT   10   13   19
+CONECT   11    1    3    7    9
+CONECT   11   26   32
+CONECT   12    3    7    8
+CONECT   13   10   23   48
+CONECT   14   22
+CONECT   15   22   23   24
+CONECT   16   20   21
+CONECT   17   19   21   44
+CONECT   18   19   20
+CONECT   19    4   10   17   18
+CONECT   19   23   24
+CONECT   20   16   18   22   24
+CONECT   21   16   17   22   23
+CONECT   22   14   15   20   21
+CONECT   23   13   15   19   21
+CONECT   23   38   44
+CONECT   24    2   15   19   20
+CONECT   25   35
+CONECT   26   11   34   48
+CONECT   27   34   35   36
+CONECT   28   32   33   43
+CONECT   29   31   33
+CONECT   30   31   32
+CONECT   31   29   30   35   36
+CONECT   32    5   11   28   30
+CONECT   32   34   36
+CONECT   33   28   29   34   35
+CONECT   34   26   27   32   33
+CONECT   34   37   43
+CONECT   35   25   27   31   33
+CONECT   36    1   27   31   32
+CONECT   37   34   47
+CONECT   38   23   46
+CONECT   39   46   47   48
+CONECT   40   44   45
+CONECT   41   43   45
+CONECT   42    9   43   44
+CONECT   43   28   34   41   42
+CONECT   43   47   48
+CONECT   44   17   23   40   42
+CONECT   44   46   48
+CONECT   45   40   41   46   47
+CONECT   46   38   39   44   45
+CONECT   47   37   39   43   45
+CONECT   48    9   13   26   39
+CONECT   48   43   44
+END

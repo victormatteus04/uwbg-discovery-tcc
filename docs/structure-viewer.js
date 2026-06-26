@@ -1,12 +1,3 @@
-function parseReplication(value) {
-  if (!value) return [1, 1, 1];
-  const parts = value.split(",").map((part) => Number.parseInt(part.trim(), 10));
-  if (parts.length !== 3 || parts.some((part) => Number.isNaN(part) || part < 1)) {
-    return [1, 1, 1];
-  }
-  return parts;
-}
-
 function showViewerMessage(container, message) {
   container.innerHTML = "";
   const paragraph = document.createElement("p");
@@ -22,6 +13,7 @@ async function loadStructureViewer(container) {
   }
 
   const structurePath = container.dataset.structure;
+  const format = container.dataset.format || structurePath.split(".").pop();
   const label = container.dataset.label || "estrutura";
 
   try {
@@ -30,7 +22,7 @@ async function loadStructureViewer(container) {
       throw new Error(`HTTP ${response.status}`);
     }
 
-    const cif = await response.text();
+    const structure = await response.text();
     container.innerHTML = "";
 
     const viewer = window.$3Dmol.createViewer(container, {
@@ -38,22 +30,11 @@ async function loadStructureViewer(container) {
       antialias: true,
     });
 
-    viewer.addModel(cif, "cif");
-
-    const [nx, ny, nz] = parseReplication(container.dataset.replicate);
-    if (nx > 1 || ny > 1 || nz > 1) {
-      try {
-        viewer.replicateUnitCell(nx, ny, nz);
-      } catch {
-        // A visualização continua funcional mesmo quando a replicação da célula não está disponível.
-      }
-    }
-
+    viewer.addModel(structure, format, { assignBonds: true });
     viewer.setStyle({}, {
-      stick: { radius: 0.13, colorscheme: "Jmol" },
-      sphere: { scale: 0.32, colorscheme: "Jmol" },
+      stick: { radius: 0.14, colorscheme: "Jmol" },
+      sphere: { scale: 0.24, colorscheme: "Jmol" },
     });
-    viewer.addUnitCell({ color: "#64748b" });
     viewer.zoomTo();
     viewer.render();
   } catch (error) {
