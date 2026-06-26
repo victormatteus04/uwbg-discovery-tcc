@@ -1,0 +1,50 @@
+{
+  "val_baseline": {
+    "mae": 0.1900072953550008,
+    "rmse": 0.2567393929514888,
+    "bias": 0.03848844037312976
+  },
+  "val_corrected": {
+    "mae": 0.16220215634568871,
+    "rmse": 0.22935723209947495,
+    "bias": 0.014081459438236136
+  },
+  "val_residual_mae": 0.16220215634568871,
+  "test_baseline": {
+    "mae": 0.17670909345738803,
+    "rmse": 0.2563327802278098,
+    "bias": 0.023463190845789697
+  },
+  "test_corrected": {
+    "mae": 0.16006863000433535,
+    "rmse": 0.23143851354232398,
+    "bias": -0.006463592736602466
+  },
+  "test_residual_mae": 0.16006863000433533,
+  "feature_cols": [
+    "gap_hse_pred",
+    "gap_pbe",
+    "n_atoms",
+    "n_species",
+    "vol_per_atom",
+    "density_atoms",
+    "spacegroup",
+    "has_transition_metal",
+    "mean_X",
+    "max_X",
+    "min_X",
+    "range_X",
+    "mean_r_cov",
+    "mean_period",
+    "max_period",
+    "mean_group",
+    "mean_Z",
+    "max_Z"
+  ],
+  "n_estimators": 400,
+  "n_samples": {
+    "train": 2416,
+    "val": 292,
+    "test": 319
+  }
+}

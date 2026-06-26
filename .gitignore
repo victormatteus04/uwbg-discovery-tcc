@@ -1,0 +1,40 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Local environments
+.env
+.venv/
+venv/
+env/
+*.conda
+
+# OS/editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Large/raw datasets not versioned in this public repository
+data/mp.2019.04.01.json
+data/raw/c2db.db
+data/raw/*.db
+data/raw/*.sqlite
+
+# Temporary execution/cache files
+cache/
+tmp/
+*.tmp
+*.log
+
+# Optional regenerated artifacts
+*.bak
+

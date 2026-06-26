@@ -1,0 +1,17 @@
+numpy
+pandas
+scipy
+scikit-learn
+matplotlib
+seaborn
+jupyter
+notebook
+tqdm
+joblib
+pymatgen
+ase
+matgl
+torch
+torchmetrics
+lightning
+dgl

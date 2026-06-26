@@ -1,0 +1,44 @@
+{
+  "uwbg_threshold_eV": 3.4,
+  "favorable_elements": [
+    "F",
+    "H",
+    "O"
+  ],
+  "unfavorable_elements": [
+    "S",
+    "Se",
+    "Te"
+  ],
+  "mean_en_min": 2.147,
+  "range_en_min": 1.47,
+  "avoid_transition_metals": true,
+  "feature_cols": [
+    "n_species",
+    "has_F",
+    "has_Cl",
+    "has_Br",
+    "has_I",
+    "has_O",
+    "has_N",
+    "has_S",
+    "has_halide",
+    "has_alkali",
+    "has_alkaline_earth",
+    "has_transition_metal",
+    "mean_en",
+    "max_en",
+    "min_en",
+    "range_en",
+    "mean_period",
+    "max_period",
+    "mean_group",
+    "mean_cov_radius",
+    "mean_atomic_mass",
+    "thickness",
+    "natoms",
+    "is_magnetic",
+    "dyn_stab_yes"
+  ],
+  "notes": "favorable_elements: presen\u00e7a em >10% dos UWBG E raz\u00e3o enriquecimento >2. Usar como boost nos algoritmos de gera\u00e7\u00e3o (Gen/02)."
+}
