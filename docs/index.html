@@ -56,21 +56,20 @@
             <em>bandgap</em>, enquanto o M3GNet foi usado apenas como potencial interatômico para relaxação geométrica.
           </p>
 
-          <figure>
-            <img src="assets/pipeline-final.png" alt="Fluxograma final do pipeline metodológico.">
+          <figure class="wide">
+            <img src="assets/tcc-met-pipeline-final.png" alt="Fluxograma final do pipeline metodológico.">
             <figcaption>Figura 1 — Pipeline final do trabalho, com treinamento, triagem, aprendizado químico, geração guiada, relaxação e verificação externa.</figcaption>
           </figure>
 
-          <div class="grid two">
-            <figure>
-              <img src="assets/dados-treinamento.png" alt="Esquema de dados e treinamento dos modelos MEGNet.">
-              <figcaption>Figura 2 — Fontes de dados, representação cristalina como grafo e treinamento do MEGNet.</figcaption>
-            </figure>
-            <figure>
-              <img src="assets/triagem-aprendizado-quimico.png" alt="Fluxo de triagem UWBG e aprendizado químico.">
-              <figcaption>Figura 3 — Triagem UWBG no C2DB e extração de tendências químicas.</figcaption>
-            </figure>
-          </div>
+          <figure class="wide">
+            <img src="assets/tcc-met-dados-treinamento.png" alt="Esquema de dados e treinamento dos modelos MEGNet.">
+            <figcaption>Figura 2 — Fontes de dados, representação cristalina como grafo e treinamento do MEGNet.</figcaption>
+          </figure>
+
+          <figure class="wide">
+            <img src="assets/tcc-met-triagem-aprendizado.png" alt="Fluxo de triagem UWBG e aprendizado químico.">
+            <figcaption>Figura 3 — Triagem UWBG no C2DB e extração de tendências químicas.</figcaption>
+          </figure>
         </section>
 
         <section id="modelos">
@@ -99,17 +98,17 @@
 
           <div class="grid two">
             <figure>
-              <img src="assets/c2db-predito-real.png" alt="Comparação entre bandgap predito e real no C2DB.">
+              <img src="assets/tcc-res-predito-real-c2db.png" alt="Comparação entre bandgap predito e real no C2DB.">
               <figcaption>Figura 4 — Comparação predito versus referência no subconjunto C2DB.</figcaption>
             </figure>
             <figure>
-              <img src="assets/scratch-vs-finetune.png" alt="Comparação entre modelos scratch e fine-tune.">
+              <img src="assets/tcc-res-scratch-finetune.png" alt="Comparação entre modelos scratch e fine-tune.">
               <figcaption>Figura 5 — Comparação entre treinamento do zero e ajuste a partir do Materials Project.</figcaption>
             </figure>
           </div>
 
           <figure>
-            <img src="assets/analise-pareada-bulk-2d.png" alt="Análise pareada entre análogos bulk e 2D.">
+            <img src="assets/tcc-res-analise-pareada.png" alt="Análise pareada entre análogos bulk e 2D.">
             <figcaption>Figura 6 — Análise pareada bulk-2D usada para avaliar diferenças de domínio entre as bases.</figcaption>
           </figure>
         </section>
@@ -140,33 +139,33 @@
 
           <div class="grid two">
             <figure>
-              <img src="assets/triagem-uwbg-c2db.png" alt="Distribuição da triagem UWBG no C2DB.">
+              <img src="assets/tcc-res-candidatos-uwbg.png" alt="Distribuição da triagem UWBG no C2DB.">
               <figcaption>Figura 7 — Resultado da triagem UWBG no C2DB.</figcaption>
             </figure>
             <figure>
-              <img src="assets/mae-vies-faixa.png" alt="MAE e viés por faixa de bandgap.">
+              <img src="assets/tcc-res-mae-vies-faixa.png" alt="MAE e viés por faixa de bandgap.">
               <figcaption>Figura 8 — Erro e viés por faixa de <em>bandgap</em>.</figcaption>
             </figure>
           </div>
 
           <div class="grid two">
             <figure>
-              <img src="assets/panorama-c2db.png" alt="Panorama de bandgaps e candidatos no C2DB.">
+              <img src="assets/tcc-res-panorama-c2db.png" alt="Panorama de bandgaps e candidatos no C2DB.">
               <figcaption>Figura 9 — Panorama dos materiais avaliados e candidatos UWBG.</figcaption>
             </figure>
             <figure>
-              <img src="assets/frequencia-elementos.png" alt="Frequência dos elementos nos candidatos.">
+              <img src="assets/tcc-res-frequencia-elementos.png" alt="Frequência dos elementos nos candidatos.">
               <figcaption>Figura 10 — Frequência elementar usada para interpretar tendências químicas.</figcaption>
             </figure>
           </div>
 
           <div class="grid two">
             <figure>
-              <img src="assets/importancia-descritores.png" alt="Importância dos descritores químicos.">
+              <img src="assets/tcc-res-importancia-descritores.png" alt="Importância dos descritores químicos.">
               <figcaption>Figura 11 — Importância dos descritores químicos no classificador.</figcaption>
             </figure>
             <figure>
-              <img src="assets/classificador-quimico.png" alt="Avaliação do classificador químico.">
+              <img src="assets/tcc-res-avaliacao-classificador.png" alt="Avaliação do classificador químico.">
               <figcaption>Figura 12 — Avaliação do classificador usado para apoiar o escore químico.</figcaption>
             </figure>
           </div>
@@ -196,25 +195,30 @@
             </div>
           </div>
 
-          <figure>
-            <img src="assets/geracao-guiada-verificacao.png" alt="Fluxo de geração guiada, checagem de novidade, relaxação e verificação.">
+          <figure class="wide">
+            <img src="assets/tcc-met-geracao-guiada.png" alt="Fluxo de geração guiada, checagem de novidade, relaxação e verificação.">
             <figcaption>Figura 13 — Geração guiada, checagem de novidade, relaxação M3GNet e reavaliação do <em>bandgap</em>.</figcaption>
           </figure>
 
           <div class="grid two">
             <figure>
-              <img src="assets/criterio-novidade-c2db.png" alt="Critério de novidade por fórmula reduzida e layer group.">
+              <img src="assets/tcc-met-criterio-novidade.png" alt="Critério de novidade por fórmula reduzida e layer group.">
               <figcaption>Figura 14 — Critério de novidade usado para separar materiais conhecidos, novas composições e composições conhecidas em outro <em>layer group</em>.</figcaption>
             </figure>
             <figure>
-              <img src="assets/relaxacao-m3gnet.png" alt="Esquema de relaxação estrutural com M3GNet e reavaliação com MEGNet.">
+              <img src="assets/tcc-met-relaxacao-m3gnet.png" alt="Esquema de relaxação estrutural com M3GNet e reavaliação com MEGNet.">
               <figcaption>Figura 15 — Relaxação geométrica aproximada com M3GNet seguida de reavaliação do <em>bandgap</em> pelo MEGNet.</figcaption>
             </figure>
           </div>
 
           <figure>
-            <img src="assets/geracao-comparacao.png" alt="Comparação entre geração baseline e geração guiada.">
-            <figcaption>Figura 16 — Comparação entre geração baseline e geração guiada por tendências químicas.</figcaption>
+            <img src="assets/tcc-met-risco-substituicao.png" alt="Critério de risco de substituição química.">
+            <figcaption>Figura 16 — Critério de risco de substituição química usado para qualificar candidatos gerados.</figcaption>
+          </figure>
+
+          <figure>
+            <img src="assets/tcc-res-geracao-comparacao.png" alt="Comparação entre geração baseline e geração guiada.">
+            <figcaption>Figura 17 — Comparação entre geração baseline e geração guiada por tendências químicas.</figcaption>
           </figure>
         </section>
 
@@ -227,49 +231,49 @@
           </p>
 
           <figure>
-            <img src="assets/comparacao-megnet-dft.png" alt="Comparação entre bandgaps preditos pelo MEGNet e resultados DFT externos.">
-            <figcaption>Figura 17 — Comparação entre predições MEGNet e resultados DFT externos antes e depois da relaxação.</figcaption>
+            <img src="assets/tcc-res-comparacao-megnet-dft.png" alt="Comparação entre bandgaps preditos pelo MEGNet e resultados DFT externos.">
+            <figcaption>Figura 18 — Comparação entre predições MEGNet e resultados DFT externos antes e depois da relaxação.</figcaption>
           </figure>
 
           <div class="grid three">
             <figure>
-              <img src="assets/bof-vista-superior.png" alt="Estrutura BOF vista superior.">
-              <figcaption>Figura 18 — BOF, vista superior.</figcaption>
+              <img src="assets/tcc-dft-bof-superior.png" alt="Estrutura BOF vista superior.">
+              <figcaption>Figura 19 — BOF, vista superior.</figcaption>
             </figure>
             <figure>
-              <img src="assets/baf2-vista-superior.png" alt="Estrutura BaF2 vista superior.">
-              <figcaption>Figura 19 — BaF<sub>2</sub>, vista superior.</figcaption>
+              <img src="assets/tcc-dft-baf2-superior.png" alt="Estrutura BaF2 vista superior.">
+              <figcaption>Figura 20 — BaF<sub>2</sub>, vista superior.</figcaption>
             </figure>
             <figure>
-              <img src="assets/lif-vista-superior.png" alt="Estrutura LiF vista superior.">
-              <figcaption>Figura 20 — LiF, vista superior.</figcaption>
+              <img src="assets/tcc-dft-lif-superior.png" alt="Estrutura LiF vista superior.">
+              <figcaption>Figura 21 — LiF, vista superior.</figcaption>
             </figure>
             <figure>
-              <img src="assets/bof-vista-lateral.png" alt="Estrutura BOF vista lateral.">
-              <figcaption>Figura 21 — BOF, vista lateral.</figcaption>
+              <img src="assets/tcc-dft-bof-lateral.png" alt="Estrutura BOF vista lateral.">
+              <figcaption>Figura 22 — BOF, vista lateral.</figcaption>
             </figure>
             <figure>
-              <img src="assets/baf2-vista-lateral.png" alt="Estrutura BaF2 vista lateral.">
-              <figcaption>Figura 22 — BaF<sub>2</sub>, vista lateral.</figcaption>
+              <img src="assets/tcc-dft-baf2-lateral.png" alt="Estrutura BaF2 vista lateral.">
+              <figcaption>Figura 23 — BaF<sub>2</sub>, vista lateral.</figcaption>
             </figure>
             <figure>
-              <img src="assets/lif-vista-lateral.png" alt="Estrutura LiF vista lateral.">
-              <figcaption>Figura 23 — LiF, vista lateral.</figcaption>
+              <img src="assets/tcc-dft-lif-lateral.png" alt="Estrutura LiF vista lateral.">
+              <figcaption>Figura 24 — LiF, vista lateral.</figcaption>
             </figure>
           </div>
 
           <div class="grid three">
             <figure>
-              <img src="assets/bof-estrutura-de-bandas.png" alt="Estrutura de bandas do BOF.">
-              <figcaption>Figura 24 — Estrutura de bandas do BOF.</figcaption>
+              <img src="assets/tcc-dft-bof-bandas.png" alt="Estrutura de bandas do BOF.">
+              <figcaption>Figura 25 — Estrutura de bandas do BOF.</figcaption>
             </figure>
             <figure>
-              <img src="assets/baf2-estrutura-de-bandas.png" alt="Estrutura de bandas do BaF2.">
-              <figcaption>Figura 25 — Estrutura de bandas do BaF<sub>2</sub>.</figcaption>
+              <img src="assets/tcc-dft-baf2-bandas.png" alt="Estrutura de bandas do BaF2.">
+              <figcaption>Figura 26 — Estrutura de bandas do BaF<sub>2</sub>.</figcaption>
             </figure>
             <figure>
-              <img src="assets/lif-estrutura-de-bandas.png" alt="Estrutura de bandas do LiF.">
-              <figcaption>Figura 26 — Estrutura de bandas do LiF.</figcaption>
+              <img src="assets/tcc-dft-lif-bandas.png" alt="Estrutura de bandas do LiF.">
+              <figcaption>Figura 27 — Estrutura de bandas do LiF.</figcaption>
             </figure>
           </div>
         </section>
