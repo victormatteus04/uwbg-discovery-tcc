@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Artigo de apoio ao TCC sobre descoberta assistida de materiais 2D com bandgap largo a ultralargo usando MEGNet, C2DB, Materials Project e M3GNet.">
+    <title>Descoberta de Materiais 2D UWBG Assistida por Modelos de Fundação</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="hero">
+      <div class="hero__content">
+        <p class="eyebrow">TCC · Engenharia Física · UFG</p>
+        <h1>Descoberta de Materiais 2D com <span>Bandgap</span> Largo a Ultralargo Assistida por Modelos de Fundação</h1>
+        <p class="lead">
+          Pipeline computacional para treinar modelos MEGNet, fazer triagem de materiais bidimensionais,
+          aprender tendências químicas, gerar candidatos por substituição e priorizar composições para verificação DFT.
+        </p>
+        <div class="meta">
+          <span>Victor Matteus Silva Souza</span>
+          <span>Orientador: Prof. Dr. Renato Borges Pontes</span>
+          <span>2026</span>
+        </div>
+        <nav class="hero__links" aria-label="Links principais">
+          <a href="https://github.com/victormatteus04/uwbg-discovery-tcc">Repositório GitHub</a>
+          <a href="https://github.com/victormatteus04/uwbg-discovery-tcc/blob/main/RELATORIO_FINAL.md">Relatório final</a>
+          <a href="https://github.com/victormatteus04/uwbg-discovery-tcc/blob/main/METODOLOGIA_TCC.md">Metodologia detalhada</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <article class="paper">
+        <section id="resumo">
+          <h2>Resumo</h2>
+          <p>
+            Materiais bidimensionais com <em>bandgap</em> largo a ultralargo são relevantes para eletrônica de potência,
+            optoeletrônica ultravioleta e dispositivos operando em condições extremas. Este trabalho avaliou um fluxo
+            computacional para reduzir o espaço de busca desses materiais usando bases de dados de DFT, redes neurais de
+            grafos e filtros químicos. O pipeline combina pré-treino em Materials Project, treino e ajuste no C2DB,
+            análise pareada bulk-2D, triagem UWBG, caracterização química, geração guiada por substituição e relaxação
+            estrutural aproximada com M3GNet.
+          </p>
+          <p>
+            O objetivo não foi substituir cálculos DFT de alta fidelidade, mas organizar uma etapa reprodutível de
+            priorização. Os candidatos finais devem ser entendidos como hipóteses computacionais, úteis para orientar
+            cálculos DFT posteriores de relaxação, estabilidade e propriedades eletrônicas.
+          </p>
+        </section>
+
+        <section id="pipeline">
+          <h2>Pipeline computacional</h2>
+          <p>
+            O fluxo final foi dividido em três blocos: treinamento dos modelos, triagem/aprendizado químico e geração
+            guiada com checagem de novidade. A separação é importante porque o MEGNet foi usado para predizer
+            <em>bandgap</em>, enquanto o M3GNet foi usado apenas como potencial interatômico para relaxação geométrica.
+          </p>
+
+          <figure>
+            <img src="assets/visao-geral.png" alt="Visão geral do pipeline de dados, triagem e geração guiada.">
+            <figcaption>Figura 1 — Visão geral do pipeline: dados e treinamento, triagem com aprendizado químico e geração guiada.</figcaption>
+          </figure>
+
+          <div class="grid two">
+            <figure>
+              <img src="assets/dados-treinamento.png" alt="Esquema de dados e treinamento dos modelos MEGNet.">
+              <figcaption>Figura 2 — Fontes de dados, representação cristalina como grafo e treinamento do MEGNet.</figcaption>
+            </figure>
+            <figure>
+              <img src="assets/triagem-aprendizado-quimico.png" alt="Fluxo de triagem UWBG e aprendizado químico.">
+              <figcaption>Figura 3 — Triagem UWBG no C2DB e extração de tendências químicas.</figcaption>
+            </figure>
+          </div>
+        </section>
+
+        <section id="modelos">
+          <h2>Treinamento e domínio dos modelos</h2>
+          <p>
+            O MEGNet foi avaliado em duas estratégias principais: treinamento direto no C2DB e inicialização a partir
+            de um pré-treino local em Materials Project. O modelo treinado diretamente no C2DB obteve menor erro médio
+            global, enquanto o modelo ajustado a partir do Materials Project reduziu a subestimação na região UWBG.
+            Por isso, o modelo <em>fine-tune</em> foi usado nas etapas finais de triagem e geração.
+          </p>
+
+          <div class="metrics">
+            <div>
+              <strong>0,3038 eV</strong>
+              <span>MAE de teste do modelo scratch C2DB</span>
+            </div>
+            <div>
+              <strong>0,3243 eV</strong>
+              <span>MAE de teste do modelo fine-tune MP→C2DB</span>
+            </div>
+            <div>
+              <strong>456</strong>
+              <span>pares bulk-2D com HSE na análise de domínio</span>
+            </div>
+          </div>
+
+          <div class="grid two">
+            <figure>
+              <img src="assets/c2db-predito-real.png" alt="Comparação entre bandgap predito e real no C2DB.">
+              <figcaption>Figura 4 — Comparação predito versus referência no subconjunto C2DB.</figcaption>
+            </figure>
+            <figure>
+              <img src="assets/scratch-vs-finetune.png" alt="Comparação entre modelos scratch e fine-tune.">
+              <figcaption>Figura 5 — Comparação entre treinamento do zero e ajuste a partir do Materials Project.</figcaption>
+            </figure>
+          </div>
+
+          <figure>
+            <img src="assets/analise-pareada-bulk-2d.png" alt="Análise pareada entre análogos bulk e 2D.">
+            <figcaption>Figura 6 — Análise pareada bulk-2D usada para avaliar diferenças de domínio entre as bases.</figcaption>
+          </figure>
+        </section>
+
+        <section id="triagem">
+          <h2>Triagem UWBG e aprendizado químico</h2>
+          <p>
+            A triagem foi aplicada ao subconjunto C2DB filtrado por energia acima do casco. O limiar adotado para
+            classificar candidatos UWBG foi <strong>3,4 eV</strong>. A partir dos candidatos identificados, foram
+            extraídas tendências químicas para orientar substituições: F, H e O aparecem como elementos favoráveis
+            a maiores <em>bandgaps</em>, enquanto S, Se e Te aparecem como desfavoráveis.
+          </p>
+
+          <div class="metrics">
+            <div>
+              <strong>9.627</strong>
+              <span>materiais avaliados no C2DB filtrado</span>
+            </div>
+            <div>
+              <strong>1.529</strong>
+              <span>candidatos UWBG preditos</span>
+            </div>
+            <div>
+              <strong>1.185</strong>
+              <span>candidatos caracterizados quimicamente</span>
+            </div>
+          </div>
+
+          <div class="grid two">
+            <figure>
+              <img src="assets/triagem-uwbg-c2db.png" alt="Distribuição da triagem UWBG no C2DB.">
+              <figcaption>Figura 7 — Resultado da triagem UWBG no C2DB.</figcaption>
+            </figure>
+            <figure>
+              <img src="assets/mae-vies-faixa.png" alt="MAE e viés por faixa de bandgap.">
+              <figcaption>Figura 8 — Erro e viés por faixa de <em>bandgap</em>.</figcaption>
+            </figure>
+          </div>
+
+          <div class="grid two">
+            <figure>
+              <img src="assets/panorama-c2db.png" alt="Panorama de bandgaps e candidatos no C2DB.">
+              <figcaption>Figura 9 — Panorama dos materiais avaliados e candidatos UWBG.</figcaption>
+            </figure>
+            <figure>
+              <img src="assets/frequencia-elementos.png" alt="Frequência dos elementos nos candidatos.">
+              <figcaption>Figura 10 — Frequência elementar usada para interpretar tendências químicas.</figcaption>
+            </figure>
+          </div>
+
+          <div class="grid two">
+            <figure>
+              <img src="assets/importancia-descritores.png" alt="Importância dos descritores químicos.">
+              <figcaption>Figura 11 — Importância dos descritores químicos no classificador.</figcaption>
+            </figure>
+            <figure>
+              <img src="assets/classificador-quimico.png" alt="Avaliação do classificador químico.">
+              <figcaption>Figura 12 — Avaliação do classificador usado para apoiar o escore químico.</figcaption>
+            </figure>
+          </div>
+        </section>
+
+        <section id="geracao">
+          <h2>Geração guiada, novidade e relaxação</h2>
+          <p>
+            A geração de candidatos foi feita por substituição química em protótipos 2D do C2DB, priorizando
+            substituições coerentes com o escore químico. Em seguida, cada candidato foi comparado com o C2DB por
+            fórmula reduzida e <em>layer group</em>, separando materiais conhecidos, composições conhecidas em outra
+            simetria e composições novas.
+          </p>
+
+          <div class="metrics">
+            <div>
+              <strong>697</strong>
+              <span>candidatos guiados gerados</span>
+            </div>
+            <div>
+              <strong>323</strong>
+              <span>classificados como novas composições</span>
+            </div>
+            <div>
+              <strong>74/90</strong>
+              <span>estruturas relaxadas ainda UWBG após M3GNet</span>
+            </div>
+          </div>
+
+          <figure>
+            <img src="assets/geracao-guiada-verificacao.png" alt="Fluxo de geração guiada, checagem de novidade, relaxação e verificação.">
+            <figcaption>Figura 13 — Geração guiada, checagem de novidade, relaxação M3GNet e reavaliação do <em>bandgap</em>.</figcaption>
+          </figure>
+
+          <figure>
+            <img src="assets/geracao-comparacao.png" alt="Comparação entre geração baseline e geração guiada.">
+            <figcaption>Figura 14 — Comparação entre geração baseline e geração guiada por tendências químicas.</figcaption>
+          </figure>
+        </section>
+
+        <section id="interpretacao">
+          <h2>Interpretação e limites</h2>
+          <p>
+            O pipeline é útil para priorizar candidatos, mas não confirma estabilidade, sintetizabilidade ou desempenho
+            tecnológico. A relaxação M3GNet atua como filtro geométrico de baixo custo e pode falhar em casos específicos,
+            como observado no estudo externo de HfNF. Para confirmação, os candidatos mais promissores devem passar por
+            relaxação DFT, cálculo HSE na geometria relaxada, análise de estabilidade termodinâmica, fônons e propriedades
+            adicionais relevantes à aplicação.
+          </p>
+          <p>
+            A principal conclusão é que modelos de aprendizado de máquina reduzem o espaço de busca e organizam a
+            priorização, mas a verificação DFT permanece indispensável para qualquer afirmação final de descoberta.
+          </p>
+        </section>
+
+        <section id="reproducibilidade">
+          <h2>Reprodutibilidade</h2>
+          <p>
+            Os notebooks foram publicados sem saídas locais para evitar caminhos absolutos e artefatos desnecessários.
+            Os relatórios e resultados processados estão disponíveis no repositório. Os dados brutos grandes não foram
+            versionados e devem ser obtidos nas fontes originais.
+          </p>
+          <ul class="links-list">
+            <li><a href="https://github.com/victormatteus04/uwbg-discovery-tcc/blob/main/README.md">README do repositório</a></li>
+            <li><a href="https://github.com/victormatteus04/uwbg-discovery-tcc/blob/main/data/README.md">Instruções dos dados</a></li>
+            <li><a href="https://github.com/victormatteus04/uwbg-discovery-tcc/tree/main/runs">Relatórios e artefatos por experimento</a></li>
+            <li><a href="https://github.com/victormatteus04/uwbg-discovery-tcc/tree/main/08_guided_generation">Geração guiada e relaxação M3GNet</a></li>
+          </ul>
+        </section>
+      </article>
+    </main>
+
+    <footer>
+      <p>
+        Página gerada como material complementar ao TCC. Código e artefatos:
+        <a href="https://github.com/victormatteus04/uwbg-discovery-tcc">github.com/victormatteus04/uwbg-discovery-tcc</a>.
+      </p>
+    </footer>
+  </body>
+</html>
+

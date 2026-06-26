@@ -2,6 +2,8 @@
 
 Repositório de apoio ao Trabalho de Conclusão de Curso sobre descoberta assistida de materiais bidimensionais com `bandgap` largo a ultralargo (WBG/UWBG).
 
+Página em formato de artigo: https://victormatteus04.github.io/uwbg-discovery-tcc/
+
 O conteúdo reúne o pipeline computacional usado para treinar modelos MEGNet, comparar domínios `bulk`/2D, caracterizar candidatos UWBG, gerar novas composições por substituição química e avaliar o efeito de relaxação estrutural com M3GNet.
 
 ## Escopo
